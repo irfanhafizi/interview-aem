@@ -1,0 +1,56 @@
+<div class="login-wrapper">
+  <div class="login-card">
+
+    <div class="login-header">
+      <p>Sign in to your dashboard</p>
+    </div>
+
+    <div class="login-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <input
+            id="username"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="username?.invalid && username?.touched"
+            formControlName="username"
+            placeholder="Username"
+          />
+          <div class="invalid-feedback" *ngIf="username?.invalid && username?.touched">
+            <span *ngIf="username?.errors?.['required']">Username is required.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            [class.is-invalid]="password?.invalid && password?.touched"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <div class="invalid-feedback" *ngIf="password?.invalid && password?.touched">
+            <span *ngIf="password?.errors?.['required']">Password is required.</span>
+          </div>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="loginForm.invalid || isLoading"
+        >
+          <span *ngIf="isLoading">SIGNING IN...</span>
+          <span *ngIf="!isLoading">SIGN IN</span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
