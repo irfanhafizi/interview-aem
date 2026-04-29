@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "bootstrap": "^5.3.8",
+    "plotly.js-dist-min": "^3.5.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -34,5 +36,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
+  },
+  "overrides": {
+    "@types/node": "16.18.0"
   }
 }
