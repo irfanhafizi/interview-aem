@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<div class="dashboard-wrapper">
+
+  <div class="main-content">
+
+    <app-navbar></app-navbar>
+
+    <div class="content-area">
+
+      <div class="loading-state" *ngIf="isLoading">
+        <p>Loading...</p>
+      </div>
+
+      <div class="error-state" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <div class="dashboard-content" *ngIf="!isLoading && !errorMessage">
+
+        <div class="charts-row">
+          <div class="card">
+            <h3 class="card-title">Donut Chart</h3>
+            <app-chart-donut [data]="chartDonutData"></app-chart-donut>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Bar Chart</h3>
+            <app-chart-bar [data]="chartBarData"></app-chart-bar>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Users</h3>
+          <app-user-table [users]="tableUsers"></app-user-table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
