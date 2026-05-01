@@ -1,27 +1,90 @@
-# InterviewAem
+# AEM Enersol Dashboard — Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+Angular 14 web dashboard application for AEM Enersol.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+| Technology | Version |
+|---|---|
+| Angular | 14 |
+| Bootstrap | 5 |
+| Bootstrap Icons | 1.13 |
+| Plotly.js | 3 |
+| TypeScript | 4.7 |
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Make sure you have the following installed before running the project:
 
-## Running unit tests
+- [Node.js](https://nodejs.org/) v16 or higher
+- [npm](https://www.npmjs.com/) v8 or higher
+- [Angular CLI](https://angular.io/cli) v14
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Install Angular CLI globally if you haven't:
 
-## Running end-to-end tests
+```bash
+npm install -g @angular/cli@14
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Getting Started
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/interview-aem.git
+cd interview-aem
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm start
+```
+
+The app will be available at:
+
+```
+http://localhost:4200
+```
+
+---
+
+## Project Structure
+
+```
+src/
+└── app/
+    ├── core/                        # Singleton services, guards, interceptors
+    │   ├── guards/
+    │   │   └── auth.guard.ts        # Route protection
+    │   ├── interceptors/
+    │   │   └── token.interceptor.ts # Attaches JWT to every request, handles 401
+    │   ├── models/
+    │   │   └── dashboard.model.ts   # TypeScript interfaces
+    │   └── services/
+    │       ├── auth.service.ts      # Login, token management
+    │       └── api.service.ts       # Dashboard API call
+    ├── shared/                      # Reusable components
+    │   └── components/
+    │       └── navbar/              # Top navigation bar
+    ├── auth/                        # Authentication module (lazy loaded)
+    │   └── login/                   # Login page
+    └── dashboard/                   # Dashboard module (lazy loaded, guarded)
+        ├── dashboard/               # Main dashboard layout
+        └── components/
+            ├── chart-donut/         # Donut chart (Plotly.js)
+            ├── chart-bar/           # Bar chart (Plotly.js)
+            └── user-table/          # Users data table
+```
